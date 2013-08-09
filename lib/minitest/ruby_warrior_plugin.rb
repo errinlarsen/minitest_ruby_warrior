@@ -1,28 +1,9 @@
-require_relative "../minitest_ruby_warrior/runner"
-
 module Minitest
   def self.plugin_ruby_warrior_init(options)
-    self.reporter.reporters.pop
-    self.reporter << RubyWarriorSummaryReporter.new
-  end
-
-  class RubyWarriorSummaryReporter < SummaryReporter
-    include MinitestRubyWarrior::Runner
-
-    def start
-      run_ruby_warrior
-      puts ruby_warrior_output
-      super
-    end
-
-    def record(result)
-      super
-      puts result.instance_variables.inspect
-    end
-
-    def report
-      super
-      puts self.results.inspect
+    if defined?(RubyWarrior::Runner)
+      require_relative "ruby_warrior_summary_reporter"
+      self.reporter.reporters.pop
+      self.reporter << RubyWarriorSummaryReporter.new
     end
   end
 

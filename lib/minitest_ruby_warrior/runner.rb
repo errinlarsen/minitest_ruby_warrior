@@ -8,10 +8,10 @@ module MinitestRubyWarrior
     alias_method :ruby_warrior_output, :rw_output
 
     def run_ruby_warrior
-      @rw_stdout = StringIO.new
-      @rw_stdin  = StringIO.new
-      @rw_runner = RubyWarrior::Runner.new(rw_cli_args, output, input)
-      @rw_output = @rw_stdout.string
+      stdin  = StringIO.new; stdout = StringIO.new
+      @rw_runner = RubyWarrior::Runner.new(rw_cli_args, stdin, stdout)
+      @rw_runner.run
+      @rw_output = stdout.string
     end
 
 
