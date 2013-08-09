@@ -1,7 +1,2 @@
-require_relative "minitest/ruby_warrior/version"
-
-module Minitest
-  module RubyWarrior
-    # Your code goes here...
-  end
-end
+require_relative "minitest_ruby_warrior/version"
+require_relative "minitest_ruby_warrior/runner"
