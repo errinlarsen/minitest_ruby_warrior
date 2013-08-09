@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Errin Larsen"]
   spec.email         = ["errinlarsen@gmail.com"]
   # spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.summary       = %q{Minitest extension for running RubyWarrior tests}
   # spec.homepage      = ""
   # spec.license       = "MIT"
 
