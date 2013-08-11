@@ -31,6 +31,28 @@ module Minitest
     def assert_ruby_warrior_total_score_meets_or_beats(score)
       assert_operator score, :<=, total_score
     end
+
+
+    private
+    def level_score
+      match_data = /^Level Score: (?<score>\d+)$/.match(rw_output)
+      return match_data.nil? ? 0 : match_data[:score].to_i
+    end
+
+    def time_bonus
+      match_data = /^Time Bonus: (?<bonus>\d+)$/.match(rw_output)
+      return match_data.nil? ? 0 : match_data[:bonus].to_i
+    end
+
+    def clear_bonus
+      match_data = /^Clear Bonus: (?<bonus>\d+)$/.match(rw_output)
+      return match_data.nil? ? 0 : match_data[:bonus].to_i
+    end
+
+    def total_score
+      match_data = /^Total Score.*= (?<score>\d+)$/.match(rw_output)
+      return match_data.nil? ? 0 : match_data[:score].to_i
+    end
   end
 end
 
